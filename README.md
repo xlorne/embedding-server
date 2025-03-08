@@ -81,6 +81,11 @@ docker-compose run
 sh install.sh
 ```
 
+docker-compose run (on nvidia docker)
+```shell
+sh install-gpu.sh
+```
+
 ## API
 
 ### Embedding
@@ -157,5 +162,20 @@ response data format :
     0.6116276383399963
 ]
 ```
+## QA
+### Docker nvidia runtime error
+add /etc/docker/daemon.json runtimes setting and restart docker `sudo systemctl restart docker`
+```shell
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    },
+    "default-runtime": "runc"
+}
+```
+
 ## References
 - [bce-embedding](https://github.com/netease-youdao/BCEmbedding)

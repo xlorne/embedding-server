@@ -1,0 +1,20 @@
+services:
+  embedding-server:
+    build:
+      context: ./
+      dockerfile: embedding-server.Dockerfile
+    runtime: nvidia
+    environment:
+      TZ: "Asia/Shanghai"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+              count: 1
+              # device_ids: [ '0' ] count与device_ids不能同时使用
+    ports:
+      - "8000:8000"
+    restart: always
+    command: [ "python","-m","src.app" ]
+
