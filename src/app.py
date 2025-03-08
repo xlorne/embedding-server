@@ -8,6 +8,7 @@ load_dotenv()
 
 SERVER_PORT = os.getenv("SERVER_PORT")
 MODEL_PATH = os.getenv("MODEL_PATH")
+DEBUG = os.getenv("DEBUG") == "True"
 
 embedding = Embedding(MODEL_PATH)
 reranker = Reranker(MODEL_PATH)
@@ -42,4 +43,4 @@ def score():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=SERVER_PORT,debug=True)
+    app.run(host='0.0.0.0',port=SERVER_PORT,debug=DEBUG)

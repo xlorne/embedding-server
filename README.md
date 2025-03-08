@@ -62,13 +62,14 @@ Finally, project files are organized as follows:
 ## Configuration
 ```shell
 # .env
-
 # model path, that is the path of the pretrained models bce-embedding-base-v1 and bce-reranker-base-v1 
 MODEL_PATH=./pretrained_model
 
 # Server port
 SERVER_PORT=8000
 
+# Debug mode
+DEBUG=False
 ```
 
 ## Usage
