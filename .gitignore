@@ -1,0 +1,5 @@
+.idea
+.vscode
+
+pretrained_model/bce-embedding-base_v1
+pretrained_model/bce-reranker-base_v1

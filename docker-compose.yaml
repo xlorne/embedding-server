@@ -1,0 +1,12 @@
+services:
+  embedding-server:
+    build:
+      context: ./
+      dockerfile: embedding-server.Dockerfile
+    environment:
+      TZ: "Asia/Shanghai"
+    ports:
+      - "8000:8000"
+    restart: always
+    command: [ "python","-m","src.app" ]
+
